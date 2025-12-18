@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+/* En Tailwind 4, definimos el tema directamente aquí.
+  Esto vincula nuestras variables de diseño con las clases de utilidad.
+*/
+@theme {
+  /* --- PALETA DE COLORES (Mare Vitae) --- */
+  
+  /* Primary */
+  --color-primary-turquoise: #008B8B;
+  --color-primary-dark: #005f6b;
+
+  /* Luxury Gold */
+  --color-luxury-gold: #D4AF37;
+  --color-luxury-goldLight: #F4C430;
+
+  /* Action Coral */
+  --color-action-coral: #FF6B6B;
+  --color-action-coralDark: #FF8E53;
+
+  /* Backgrounds */
+  --color-bg-mist: #F0F4F5;
+  --color-bg-white: #FFFFFF;
+
+  /* Text */
+  --color-text-darkBlue: #2C3E50;
+  --color-text-muted: #64748b;
+
+  /* --- TIPOGRAFÍA --- */
+  /* Vinculamos las variables que Next.js inyectará (en el layout) */
+  --font-playfair: var(--font-playfair), serif;
+  --font-montserrat: var(--font-montserrat), sans-serif;
+
+  /* --- GRADIENTES --- */
+  --background-image-hero-gradient: linear-gradient(-45deg, #003366, #008B8B, #005f6b, #0a2342);
+  --background-image-gold-gradient: linear-gradient(135deg, #D4AF37 0%, #F4C430 100%);
+  --background-image-coral-gradient: linear-gradient(to right, #FF6B6B 0%, #FF8E53 51%, #FF6B6B 100%);
+}
+
+/* Estilos base opcionales
+*/
+body {
+  background-color: var(--color-bg-mist);
+  color: var(--color-text-darkBlue);
+  font-family: var(--font-montserrat);
+}

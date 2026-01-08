@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation"; // 1. Importante: Hook de navegación
-import { Mail, Lock, Eye, EyeOff, ArrowRight, Loader2 } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { Mail, Lock, Eye, EyeOff, ArrowRight, Loader2, ShieldCheck } from "lucide-react"; // Agregamos ShieldCheck
 
 export default function LoginPage() {
-  const router = useRouter(); // 2. Instanciamos el router
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -15,17 +15,11 @@ export default function LoginPage() {
     e.preventDefault();
     setIsLoading(true);
     
-// 🔴 BACKEND TODO: Aquí comienza la integración real
-    // 1. Enviar POST a /api/auth/login con formData.email y formData.password
-    // 2. Esperar respuesta (await).
-    // 3. Si es exitoso: Guardar el token (JWT) en Cookies HttpOnly o LocalStorage.
-    // 4. Si falla: Mostrar error en la UI (ej: setErrorMessage("Credenciales inválidas")).
+    // 🔴 BACKEND TODO: Aquí comienza la integración real
+    // ... (Lógica de backend igual que antes) ...
 
-    // Simulación de espera del servidor
     setTimeout(() => {
       setIsLoading(false);
-      
-      // Simulación exitosa: Redirigimos al Dashboard (Área Personal)
       console.log("Login exitoso, redirigiendo...");
       router.push('/'); 
     }, 2000);
@@ -34,18 +28,14 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen w-full flex bg-white relative z-10">
       
-      {/* --- SECCIÓN IZQUIERDA: VISUAL --- */}
+      {/* --- SECCIÓN IZQUIERDA: VISUAL (Sin cambios) --- */}
       <div className="hidden lg:flex lg:w-1/2 relative bg-hero-gradient items-center justify-center overflow-hidden">
-        {/* Patrón de fondo opcional */}
         <div className="absolute inset-0 opacity-10 bg-[url('/pattern.png')] bg-repeat"></div>
-        
-        {/* Círculos decorativos (Efecto Glassmorphism) */}
         <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-primary-turquoise rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
         <div className="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-luxury-gold rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
 
         <div className="relative z-10 text-center px-12 text-white max-w-lg">
           <div className="mb-8 flex justify-center">
-             {/* Logo Versión Blanca Grande */}
              <div className="w-20 h-20 rounded-full border-2 border-luxury-gold flex items-center justify-center bg-white/10 backdrop-blur-md shadow-2xl">
                  <span className="font-playfair text-3xl font-bold">MV</span>
              </div>
@@ -62,8 +52,24 @@ export default function LoginPage() {
       {/* --- SECCIÓN DERECHA: FORMULARIO --- */}
       <div className="w-full lg:w-1/2 flex flex-col justify-center items-center p-8 sm:p-12 lg:p-24 bg-white relative">
         
-        {/* Botón "Volver" flotante móvil */}
-        <div className="absolute top-6 right-6">
+        {/* ⭐️ CAMBIO AQUÍ: BARRA DE NAVEGACIÓN SUPERIOR DERECHA 
+            Hemos agrupado los botones en un flex container.
+        */}
+        <div className="absolute top-6 right-6 flex items-center gap-6">
+            
+            {/* Botón MODO ADMIN (Nuevo) */}
+            <Link 
+                href="/admin" // Asumimos que esta será la ruta (la crearemos luego)
+                className="text-xs font-bold text-gray-400 hover:text-luxury-gold transition-colors flex items-center gap-2 uppercase tracking-widest group"
+            >
+                <ShieldCheck size={16} className="text-gray-300 group-hover:text-luxury-gold transition-colors" />
+                <span>Admin</span>
+            </Link>
+
+            {/* Separador Visual */}
+            <div className="h-4 w-px bg-gray-200"></div>
+
+            {/* Botón VOLVER AL INICIO (Original) */}
             <Link href="/" className="text-sm text-gray-400 hover:text-primary-turquoise font-bold flex items-center gap-2 transition-colors">
                 Volver al inicio <ArrowRight size={16}/>
             </Link>
@@ -155,7 +161,6 @@ export default function LoginPage() {
 
            {/* Decoración inferior */}
            <div className="pt-8 mt-8 border-t border-gray-100 flex justify-center gap-6 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-                {/* Aquí irían logos de partners o certificaciones */}
                 <div className="h-8 w-8 rounded bg-gray-200"></div>
                 <div className="h-8 w-8 rounded bg-gray-200"></div>
                 <div className="h-8 w-8 rounded bg-gray-200"></div>

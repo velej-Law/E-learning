@@ -41,7 +41,6 @@ export default function Header() {
 
   // Enlaces de navegación principales. Fácil de editar si cambia la estructura del sitio.
   const navLinks = [
-    { name: "ELEARNING", href: "/elearning" },
     { name: "ÁREA PERSONAL", href: "/" }, // Asumimos que el dashboard es el home
     { name: "MIS CURSOS", href: "/cursos" },
   ];

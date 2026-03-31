@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react";
 import { UploadCloud, Calendar, AlertCircle, FileText, File, X, CheckCircle2 } from "lucide-react";
-import { clsx } from "clsx";
+
 
 /**
  * COMPONENTE: VISTA DE ENTREGA DE TAREA
@@ -72,31 +72,31 @@ export default function AssignmentView() {
       {/* --- CABECERA DE LA TAREA --- */}
       <div className="border-b border-gray-200 pb-6 mb-6">
         <div className="flex items-center gap-2 mb-2">
-            <span className="bg-primary-turquoise/10 text-primary-turquoise text-xs font-bold px-2 py-1 rounded uppercase tracking-wider">
+            <span className="bg-luminous-orange/10 text-luminous-orange text-xs font-bold px-2 py-1 rounded uppercase tracking-wider">
                 Tarea Práctica
             </span>
-            <span className="bg-red-50 text-action-coral text-xs font-bold px-2 py-1 rounded flex items-center gap-1">
+            <span className="bg-red-50 text-luminous-orange text-xs font-bold px-2 py-1 rounded flex items-center gap-1">
                 <AlertCircle size={12}/> Pendiente
             </span>
         </div>
-        <h1 className="font-playfair text-3xl font-bold text-text-darkBlue mb-4">
+        <h1 className="font-space-grotesk text-3xl font-bold text-dark-blue mb-4">
           Práctica de Talasoterapia
         </h1>
         <div className="flex items-center gap-6 text-sm text-gray-500">
             <div className="flex items-center gap-2">
-                <Calendar size={16} className="text-luxury-gold"/>
+                <Calendar size={16} className="text-luminous-orange"/>
                 <span>Vence: <strong>Domingo, 30 de Mayo</strong></span>
             </div>
             <div className="flex items-center gap-2">
-                <FileText size={16} className="text-luxury-gold"/>
+                <FileText size={16} className="text-luminous-orange"/>
                 <span>Puntos: <strong>10/10</strong></span>
             </div>
         </div>
       </div>
 
       {/* --- INSTRUCCIONES --- */}
-      <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm mb-8 prose prose-slate max-w-none">
-        <h3 className="font-bold text-text-darkBlue mb-2">Instrucciones de la entrega</h3>
+      <div className="bg-white p-6 rounded-md border border-gray-100 shadow-sm mb-8 prose prose-slate max-w-none">
+        <h3 className="font-bold text-dark-blue mb-2">Instrucciones de la entrega</h3>
         <p className="text-gray-600 mb-4">
             Basado en el módulo anterior, debes realizar un video corto (máx 2 min) o redactar un documento PDF explicando 
             la técnica correcta para la aplicación de lodos marinos en la zona lumbar.
@@ -123,33 +123,33 @@ export default function AssignmentView() {
             // ESTADO 1: NO HAY ARCHIVO SELECCIONADO (Mostrar zona de Drop)
             <div 
                 onClick={handleUploadClick}
-                className="bg-bg-mist/50 border-2 border-dashed border-gray-300 rounded-xl p-10 text-center hover:border-primary-turquoise hover:bg-primary-turquoise/5 transition-all cursor-pointer group"
+                className="bg-signal-white/50 border-2 border-dashed border-gray-300 rounded-md p-10 text-center hover:border-luminous-orange hover:bg-luminous-orange/5 transition-all cursor-pointer group"
             >
                 <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm group-hover:scale-110 transition-transform">
-                    <UploadCloud size={32} className="text-primary-turquoise" />
+                    <UploadCloud size={32} className="text-luminous-orange" />
                 </div>
-                <h3 className="text-lg font-bold text-text-darkBlue mb-1">Arrastra tu archivo aquí</h3>
+                <h3 className="text-lg font-bold text-dark-blue mb-1">Arrastra tu archivo aquí</h3>
                 <p className="text-sm text-gray-500 mb-6">o haz clic para buscar en tu ordenador</p>
-                <button className="px-6 py-2 bg-primary-turquoise text-white font-bold rounded-md shadow hover:bg-primary-dark transition-colors">
+                <button className="px-6 py-2 bg-luminous-orange text-white font-bold rounded-md shadow hover:bg-dark-blue transition-colors">
                     Seleccionar Archivo
                 </button>
             </div>
         ) : (
             // ESTADO 2: ARCHIVO SELECCIONADO (Mostrar preview y confirmación)
-            <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm animate-in zoom-in-95 duration-200">
+            <div className="bg-white border border-gray-200 rounded-md p-6 shadow-sm animate-in zoom-in-95 duration-200">
                 <div className="flex items-center justify-between mb-6">
                     <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-primary-turquoise/10 rounded-lg flex items-center justify-center text-primary-turquoise">
+                        <div className="w-12 h-12 bg-luminous-orange/10 rounded-lg flex items-center justify-center text-luminous-orange">
                             <File size={24} />
                         </div>
                         <div>
-                            <p className="font-bold text-text-darkBlue text-sm">{selectedFile.name}</p>
+                            <p className="font-bold text-dark-blue text-sm">{selectedFile.name}</p>
                             <p className="text-xs text-gray-500">{(selectedFile.size / 1024 / 1024).toFixed(2)} MB • Listo para subir</p>
                         </div>
                     </div>
                     <button 
                         onClick={removeFile}
-                        className="p-2 hover:bg-red-50 text-gray-400 hover:text-action-coral rounded-full transition-colors"
+                        className="p-2 hover:bg-red-50 text-gray-400 hover:text-luminous-orange rounded-full transition-colors"
                         title="Quitar archivo"
                     >
                         <X size={20} />
@@ -159,13 +159,13 @@ export default function AssignmentView() {
                 <div className="flex justify-end gap-3">
                     <button 
                         onClick={removeFile}
-                        className="px-4 py-2 text-sm font-bold text-gray-500 hover:text-text-darkBlue transition-colors"
+                        className="px-4 py-2 text-sm font-bold text-gray-500 hover:text-dark-blue transition-colors"
                     >
                         Cancelar
                     </button>
                     <button 
                         onClick={handleSubmitAssignment}
-                        className="px-6 py-2 bg-primary-turquoise text-white font-bold rounded-md shadow hover:bg-primary-dark transition-all flex items-center gap-2"
+                        className="px-6 py-2 bg-luminous-orange text-white font-bold rounded-md shadow hover:bg-dark-blue transition-all flex items-center gap-2"
                     >
                         <CheckCircle2 size={16} /> Enviar Entrega
                     </button>

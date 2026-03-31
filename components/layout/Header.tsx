@@ -71,19 +71,17 @@ export default function Header() {
           
           {/* --- ZONA 1: LOGOTIPO (Izquierda) --- */}
           <div className="shrink-0 flex items-center gap-3 cursor-pointer">
-            {/* Icono decorativo de Ola/Sol */}
-            <div className="w-10 h-10 rounded-full border-2 border-luxury-gold flex items-center justify-center bg-white/10 backdrop-blur-sm">
-               <svg className="w-6 h-6 text-luxury-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-               </svg>
+            {/* Icono decorativo */}
+            <div className="w-10 h-10 rounded-md border-2 border-luminous-orange flex items-center justify-center bg-white/10 backdrop-blur-sm p-1">
+               <img src="/Isotipo.png" alt="Logicube Logo" className="w-full h-full object-contain" />
             </div>
             {/* Texto de la marca con tipografías corporativas */}
             <div className="flex flex-col">
-              <span className="font-playfair font-bold text-lg leading-none tracking-widest text-white">
-                MARE VITAE
+              <span className="font-space-grotesk font-bold text-lg leading-none tracking-widest text-white">
+                LOGICUBE
               </span>
-              <span className="font-montserrat text-[10px] tracking-[0.2em] text-luxury-gold uppercase">
-                International
+              <span className="font-syne text-[10px] tracking-[0.2em] text-luminous-orange uppercase">
+                Desarrollo y Asesoría TI
               </span>
             </div>
           </div>
@@ -102,13 +100,13 @@ export default function Header() {
                     "relative h-full flex items-center px-1 text-sm font-bold tracking-wide transition-colors duration-300",
                     isActive 
                       ? "text-white" // Estilo si está activo
-                      : "text-gray-300 hover:text-luxury-gold" // Estilo inactivo
+                      : "text-gray-300 hover:text-luminous-orange" // Estilo inactivo
                   )}
                 >
                   {link.name}
-                  {/* Línea dorada inferior indicadora de "Activo" */}
+                  {/* Línea naranja inferior indicadora de "Activo" */}
                   {isActive && (
-                    <span className="absolute bottom-0 left-0 w-full h-1 bg-luxury-gold rounded-t-md shadow-[0_-2px_10px_rgba(212,175,55,0.5)]" />
+                    <span className="absolute bottom-0 left-0 w-full h-1 bg-luminous-orange rounded-t-md shadow-[0_-2px_10px_rgba(236,103,42,0.5)]" />
                   )}
                 </Link>
               );
@@ -120,18 +118,18 @@ export default function Header() {
             
             {/* Iconos de notificación (Campana y Correo) */}
             <div className="flex items-center gap-4 text-gray-300">
-              <button className="relative hover:text-luxury-gold transition-colors">
+              <button className="relative hover:text-luminous-orange transition-colors">
                 <Bell size={20} />
-                {/* Punto rojo si hay notificaciones */}
+                {/* Punto naranja si hay notificaciones */}
                 {user.notifications > 0 && (
-                  <span className="absolute -top-1 -right-1 h-2 w-2 bg-action-coral rounded-full animate-pulse" />
+                  <span className="absolute -top-1 -right-1 h-2 w-2 bg-luminous-orange rounded-full animate-pulse" />
                 )}
               </button>
-              <button className="relative hover:text-luxury-gold transition-colors">
+              <button className="relative hover:text-luminous-orange transition-colors">
                 <Mail size={20} />
                 {/* Contador numérico de mensajes */}
                 {user.messages > 0 && (
-                  <span className="absolute -top-1 -right-1 h-4 w-4 bg-action-coral text-[10px] flex items-center justify-center rounded-full text-white font-bold">
+                  <span className="absolute -top-1 -right-1 h-4 w-4 bg-luminous-orange text-[10px] flex items-center justify-center rounded-full text-white font-bold">
                     {user.messages}
                   </span>
                 )}
@@ -147,16 +145,16 @@ export default function Header() {
                 className="flex items-center gap-3 group focus:outline-none"
               >
                  <div className="text-right hidden lg:block">
-                    <p className="text-xs font-bold text-white group-hover:text-luxury-gold transition-colors">
+                    <p className="text-xs font-bold text-white group-hover:text-luminous-orange transition-colors">
                       {user.name}
                     </p>
                     <p className="text-[10px] text-gray-400 uppercase tracking-wider">Estudiante</p>
                  </div>
-                 {/* Avatar Circular con borde dorado */}
-                 <div className="h-10 w-10 rounded-full border-2 border-luxury-gold/50 group-hover:border-luxury-gold overflow-hidden transition-all shadow-lg">
+                 {/* Avatar Cuadrangular redondeado con borde naranja */}
+                 <div className="h-10 w-10 rounded-md border-2 border-luminous-orange/50 group-hover:border-luminous-orange overflow-hidden transition-all shadow-lg">
                     {/* Placeholder de imagen (Iniciales) */}
-                    <div className="w-full h-full bg-gray-600 flex items-center justify-center text-white">
-                        <span className="font-playfair font-bold">JV</span>
+                    <div className="w-full h-full bg-ultramarine-blue flex items-center justify-center text-white">
+                        <span className="font-space-grotesk font-bold">JV</span>
                     </div>
                  </div>
                  {/* Flechita que gira si el menú está abierto */}
@@ -165,16 +163,16 @@ export default function Header() {
 
               {/* Menú Flotante (Dropdown) - Solo visible si isProfileOpen es true */}
               {isProfileOpen && (
-                <div className="absolute right-0 mt-4 w-56 bg-white rounded-lg shadow-xl py-2 animate-in fade-in zoom-in-95 duration-200 border border-gray-100 z-50">
-                  <div className="px-4 py-3 border-b border-gray-100 lg:hidden">
-                    <p className="text-sm font-bold text-text-darkBlue">{user.name}</p>
+                <div className="absolute right-0 mt-4 w-56 bg-white rounded-md shadow-xl py-2 animate-in fade-in zoom-in-95 duration-200 border border-signal-white z-50">
+                  <div className="px-4 py-3 border-b border-signal-white lg:hidden">
+                    <p className="text-sm font-bold text-dark-blue">{user.name}</p>
                   </div>
                   
                   {/* Link al Perfil */}
                   <Link 
                     href="/perfil" 
                     onClick={() => setIsProfileOpen(false)} // Cerramos el menú al navegar
-                    className="flex items-center gap-3 px-4 py-2 text-sm text-gray-600 hover:bg-bg-mist hover:text-primary-turquoise transition-colors"
+                    className="flex items-center gap-3 px-4 py-2 text-sm text-gray-600 hover:bg-signal-white hover:text-luminous-orange transition-colors"
                   >
                     <User size={16} /> Mi Perfil
                   </Link>
@@ -182,7 +180,7 @@ export default function Header() {
                   {/* Botón Cerrar Sesión */}
                   <button 
                     onClick={handleLogout} // Llama a la función de logout
-                    className="w-full flex items-center gap-3 px-4 py-2 text-sm text-action-coral hover:bg-red-50 transition-colors text-left"
+                    className="w-full flex items-center gap-3 px-4 py-2 text-sm text-luminous-orange hover:bg-orange-50 transition-colors text-left"
                   >
                     <LogOut size={16} /> Cerrar Sesión
                   </button>
@@ -195,7 +193,7 @@ export default function Header() {
           <div className="md:hidden flex items-center">
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-white hover:text-luxury-gold transition-colors p-2"
+              className="text-white hover:text-luminous-orange transition-colors p-2"
             >
               {/* Cambia el icono entre Hamburguesa y X según el estado */}
               {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -207,7 +205,7 @@ export default function Header() {
       {/* --- MENÚ DESPLEGABLE MÓVIL --- */}
       {/* Se renderiza fuera de la barra principal, empujando o flotando sobre el contenido */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-primary-dark/95 backdrop-blur-lg border-t border-white/10 absolute w-full z-40">
+        <div className="md:hidden bg-ultramarine-blue/98 backdrop-blur-lg border-t border-white/10 absolute w-full z-40">
           <div className="px-4 pt-2 pb-6 space-y-2">
             {navLinks.map((link) => (
               <Link
@@ -223,7 +221,7 @@ export default function Header() {
             <div className="border-t border-white/10 my-2 pt-2">
                  <p className="px-3 text-xs text-gray-400 uppercase mb-2">Cuenta</p>
                  <div className="flex items-center gap-3 px-3 py-2 text-white">
-                    <div className="h-8 w-8 rounded-full bg-luxury-gold flex items-center justify-center text-xs font-bold text-black">JV</div>
+                    <div className="h-8 w-8 rounded-md bg-luminous-orange flex items-center justify-center text-xs font-bold text-white">JV</div>
                     <span className="text-sm">{user.name}</span>
                  </div>
             </div>
@@ -231,8 +229,8 @@ export default function Header() {
         </div>
       )}
 
-      {/* Barra Dorada Inferior (Detalle estético para separar el header del contenido) */}
-      <div className="h-1 w-full bg-gold-gradient" />
+      {/* Barra Naranja Inferior (Detalle estético para separar el header del contenido) */}
+      <div className="h-1 w-full bg-orange-gradient" />
     </header>
   );
 }

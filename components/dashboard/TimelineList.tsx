@@ -2,8 +2,7 @@
 import Link from "next/link";
 
 import { useState } from "react";
-import { Clock, SlidersHorizontal, FileUp, MoreVertical, ChevronDown } from "lucide-react";
-import { clsx } from "clsx";
+import { Clock, SlidersHorizontal, FileUp, ChevronDown } from "lucide-react";
 
 /**
  * CONTRATO DE DATOS (API)
@@ -63,7 +62,7 @@ export default function TimelineList() {
   const [sortOpen, setSortOpen] = useState(false);
   
   // Estado visual del filtro activo (Solo cambia el texto del botón por ahora)
-  const [activeFilter, setActiveFilter] = useState("Próximos 7 días");
+  const [activeFilter] = useState("Próximos 7 días");
 
   /**
    * Ayudante visual: Decide qué icono mostrar según el tipo de tarea.
@@ -77,7 +76,7 @@ export default function TimelineList() {
   };
 
   return (
-    <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 min-h-[400px]">
+    <div className="bg-white p-6 rounded-md shadow-sm border border-gray-100 min-h-[400px]">
       
       {/* --- ZONA DE CONTROLES SUPERIOR (Filtros y Ordenamiento) --- */}
       <div className="flex justify-between items-center mb-8 border-b border-gray-100 pb-4">
@@ -86,7 +85,7 @@ export default function TimelineList() {
         <div className="relative">
           <button 
             onClick={() => setFilterOpen(!filterOpen)}
-            className="flex items-center gap-2 px-3 py-2 bg-primary-turquoise text-white rounded-md shadow-sm hover:bg-primary-dark transition-colors text-sm font-medium"
+            className="flex items-center gap-2 px-3 py-2 bg-luminous-orange text-white rounded-md shadow-sm hover:bg-dark-blue transition-colors text-sm font-medium"
           >
             <Clock size={18} />
             <span className="hidden sm:inline">{activeFilter}</span>
@@ -98,20 +97,20 @@ export default function TimelineList() {
             <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-xl z-20 animate-in fade-in zoom-in-95 duration-200">
                 <div className="py-1">
                     {/* BACKEND TODO: Conectar estos botones para refetching de datos con filtros de fecha */}
-                    <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-bg-mist hover:text-primary-turquoise">
+                    <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-signal-white hover:text-luminous-orange">
                         Todas
                     </button>
-                    <button className="w-full text-left px-4 py-2 text-sm text-action-coral font-bold hover:bg-red-50">
+                    <button className="w-full text-left px-4 py-2 text-sm text-luminous-orange font-bold hover:bg-orange-50">
                         Atrasadas
                     </button>
                     <div className="border-t border-gray-100 my-1"></div>
                     <p className="px-4 py-1 text-[10px] uppercase text-gray-400 font-bold tracking-wider">
                         Fecha de vencimiento
                     </p>
-                    <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-bg-mist hover:text-primary-turquoise">
+                    <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-signal-white hover:text-luminous-orange">
                         Próximos 7 días
                     </button>
-                    <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-bg-mist hover:text-primary-turquoise">
+                    <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-signal-white hover:text-luminous-orange">
                         Próximos 30 días
                     </button>
                 </div>
@@ -133,10 +132,10 @@ export default function TimelineList() {
              {sortOpen && (
                 <div className="absolute top-full right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-xl z-20 animate-in fade-in zoom-in-95 duration-200">
                     <div className="py-1">
-                        <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-bg-mist font-medium">
+                        <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-signal-white font-medium">
                             Ordenar por fecha
                         </button>
-                        <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-bg-mist font-medium">
+                        <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-signal-white font-medium">
                             Ordenar por curso
                         </button>
                     </div>
@@ -151,7 +150,7 @@ export default function TimelineList() {
             <div key={task.id} className="animate-in slide-in-from-bottom-2 duration-500">
                 
                 {/* Cabecera de Fecha (Ej: Lun. 30 de Mayo...) */}
-                <h3 className="font-playfair text-lg text-text-darkBlue font-bold mb-4 border-l-4 border-luxury-gold pl-3">
+                <h3 className="font-space-grotesk text-lg text-dark-blue font-bold mb-4 border-l-4 border-luminous-orange pl-3">
                     {task.dateLabel}
                 </h3>
 
@@ -165,12 +164,12 @@ export default function TimelineList() {
                         </span>
                         
                         {/* Contenedor del Icono */}
-                        <div className="w-10 h-10 rounded-full bg-primary-turquoise flex items-center justify-center shadow-md shrink-0">
+                        <div className="w-10 h-10 rounded-full bg-luminous-orange flex items-center justify-center shadow-md shrink-0">
                             {getIcon(task.type)}
                         </div>
 
                         <div className="flex flex-col">
-                            <span className="font-bold text-text-darkBlue text-base leading-tight group-hover:text-primary-turquoise transition-colors">
+                            <span className="font-bold text-dark-blue text-base leading-tight group-hover:text-luminous-orange transition-colors">
                                 {task.title}
                             </span>
                             <span className="text-xs text-gray-500 mt-1">
@@ -191,8 +190,8 @@ export default function TimelineList() {
                     */}
                     <Link 
                     //Apuntamos a la ruta del curso y pasamos params: ?lessonId=... & type=...
-                    href={`/curso/talasoterapia-avanzada?lessonId=${task.id}&type=${task.type}`}className="w-full md:w-auto">
-                          <button className="w-full px-5 py-2 rounded-md border border-primary-turquoise text-primary-turquoise font-bold text-sm hover:bg-primary-turquoise hover:text-white transition-all shadow-sm uppercase tracking-wide">
+                    href={`/curso/talasoterapia-avanzada?lessonId=${task.id}&type=${task.type}`} className="w-full md:w-auto">
+                          <button className="w-full px-5 py-2 rounded-md border border-luminous-orange text-luminous-orange font-bold text-sm hover:bg-luminous-orange hover:text-white transition-all shadow-sm uppercase tracking-wide">
                               Agregar entrega
                           </button>
                     </Link>

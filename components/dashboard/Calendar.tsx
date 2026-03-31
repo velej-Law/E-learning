@@ -59,7 +59,7 @@ export default function Calendar() {
   const weekDays = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
 
   return (
-    <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 mt-8">
+    <div className="bg-white p-6 rounded-md shadow-sm border border-gray-100 mt-8">
       
       {/* --- ZONA DE CONTROLES (Filtros y Acciones) --- */}
       <div className="flex justify-between items-center mb-6">
@@ -70,7 +70,7 @@ export default function Calendar() {
         </select>
         
         {/* Botón de Acción Principal */}
-        <button className="px-4 py-2 bg-action-coral text-white text-sm font-bold rounded shadow hover:bg-action-coralDark transition-colors">
+        <button className="px-4 py-2 bg-luminous-orange text-white text-sm font-bold rounded shadow hover:bg-orange-600 transition-colors">
              Nuevo evento
         </button>
       </div>
@@ -78,15 +78,15 @@ export default function Calendar() {
       {/* --- NAVEGACIÓN DE MES --- */}
       <div className="flex justify-between items-center mb-2">
          {/* Botón Mes Anterior: Necesita lógica JS para cambiar el estado del mes */}
-         <button className="text-gray-500 hover:text-primary-turquoise font-bold text-sm flex items-center">
+         <button className="text-gray-500 hover:text-luminous-orange font-bold text-sm flex items-center">
             <ChevronLeft size={16} /> octubre
          </button>
          
          {/* Título del Mes Actual */}
-         <h3 className="text-lg font-bold text-text-darkBlue uppercase">noviembre 2025</h3>
+         <h3 className="text-lg font-bold text-dark-blue uppercase">noviembre 2025</h3>
          
          {/* Botón Mes Siguiente */}
-         <button className="text-gray-500 hover:text-primary-turquoise font-bold text-sm flex items-center">
+         <button className="text-gray-500 hover:text-luminous-orange font-bold text-sm flex items-center">
             diciembre <ChevronRight size={16} />
          </button>
       </div>
@@ -101,9 +101,9 @@ export default function Calendar() {
                     key={day} 
                     className={clsx(
                         "py-2 px-2 text-left",
-                        // LÓGICA VISUAL: Si es Sábado (idx 5) o Domingo (idx 6), aplicamos el gradiente dorado.
-                        // El resto de días usan el color turquesa corporativo.
-                        index >= 5 ? "bg-gold-gradient text-text-darkBlue" : "bg-primary-turquoise"
+                        // LÓGICA VISUAL: Si es Sábado (idx 5) o Domingo (idx 6), aplicamos el gradiente naranja.
+                        // El resto de días usan el color azul corporativo.
+                        index >= 5 ? "bg-orange-gradient text-white" : "bg-dark-blue"
                     )}
                 >
                     {day}
@@ -119,7 +119,7 @@ export default function Calendar() {
                     className={clsx(
                         "border-r border-b border-gray-100 p-1 relative transition-colors hover:bg-gray-50",
                         // LÓGICA VISUAL: Fondo crema sutil para fines de semana para diferenciarlos rápidamente
-                        day.type === "weekend" ? "bg-[#fffdf5]" : "bg-white" 
+                        day.type === "weekend" ? "bg-signal-white" : "bg-white" 
                     )}
                 >
                     {/* Número del día (Solo si no es celda vacía) */}
@@ -134,8 +134,8 @@ export default function Calendar() {
                             "mt-2 p-2 text-[10px] leading-tight rounded font-bold cursor-pointer shadow-sm",
                             // Estilos condicionales según el tipo de evento (Color)
                             day.event.color === "teal" 
-                                ? "bg-primary-turquoise text-white hover:bg-primary-dark" 
-                                : "bg-white border-l-4 border-text-darkBlue text-text-darkBlue hover:shadow-md"
+                                ? "bg-dark-blue text-white hover:bg-ultramarine-blue" 
+                                : "bg-white border-l-4 border-luminous-orange text-dark-blue hover:shadow-md"
                         )}>
                             {day.event.title}
                         </div>

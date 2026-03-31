@@ -14,7 +14,7 @@ const courses = [
   {
     id: "1",
     title: "Fundamentos de Talasoterapia",
-    instructor: "Montserrat Regular",
+    instructor: "Logicube Instructor",
     parallel: "Paralelo 1",
     imageSrc: "/course1.jpg",
     progress: 38,
@@ -23,7 +23,7 @@ const courses = [
   {
     id: "2",
     title: "Hidroterapia Marina Avanzada",
-    instructor: "Montserrat Regular",
+    instructor: "Logicube Instructor",
     parallel: "Paralelo 1",
     imageSrc: "/course2.jpg",
     progress: 8,
@@ -32,7 +32,7 @@ const courses = [
   {
     id: "3",
     title: "Aplicaciones de Algas y Fangos",
-    instructor: "Montserrat Regular",
+    instructor: "Logicube Instructor",
     parallel: "Paralelo 1",
     imageSrc: "/course3.jpg",
     progress: 25,
@@ -41,7 +41,7 @@ const courses = [
   {
     id: "4",
     title: "Gestión de Centros de Bienestar Marino",
-    instructor: "Montserrat Regular",
+    instructor: "Logicube Instructor",
     parallel: "Paralelo 1",
     imageSrc: "/course4.jpg",
     progress: 0, // No iniciado
@@ -50,7 +50,7 @@ const courses = [
    {
     id: "5",
     title: "Climatoterapia Marina",
-    instructor: "Montserrat Regular",
+    instructor: "Logicube Instructor",
     parallel: "Paralelo 1",
     imageSrc: "/course5.jpg",
     progress: 100,
@@ -66,16 +66,16 @@ const courses = [
  */
 export default function MisCursosPage() {
   return (
-    <div className="bg-bg-mist min-h-screen">
+    <div className="bg-signal-white min-h-screen">
       
       {/* --- HERO SECTION --- */}
       {/* Cabecera visual con degradado corporativo */}
-      <section className="bg-hero-gradient pt-16 pb-24 text-center relative overflow-hidden">
+      <section className="bg-gradient-to-r from-dark-blue to-ultramarine-blue pt-16 pb-24 text-center relative overflow-hidden">
         {/* Decoración de fondo (Patrón de ondas opcional) */}
         <div className="absolute top-0 left-0 w-full h-full opacity-5 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent pointer-events-none"></div>
         
-        <h1 className="font-playfair text-3xl md:text-4xl font-bold text-white uppercase tracking-widest relative z-10 drop-shadow-md">
-          Mis Cursos de Talasoterapia
+        <h1 className="font-space-grotesk text-3xl md:text-4xl font-bold text-white uppercase tracking-widest relative z-10 drop-shadow-md">
+          Mis Cursos
         </h1>
       </section>
 
@@ -88,7 +88,7 @@ export default function MisCursosPage() {
           <div className="w-full md:w-auto min-w-[150px]">
             <div className="relative">
                 {/* 🔴 FRONTEND TODO: Agregar onChange para filtrar la lista 'courses' */}
-                <select className="w-full appearance-none bg-bg-mist border border-gray-200 text-gray-700 py-2 px-4 pr-8 rounded focus:outline-none focus:border-primary-turquoise cursor-pointer text-sm font-medium">
+                <select className="w-full appearance-none bg-signal-white border border-gray-200 text-gray-700 py-2 px-4 pr-8 rounded focus:outline-none focus:border-luminous-orange cursor-pointer text-sm font-medium">
                     <option>Todos</option>
                     <option>En Progreso</option>
                     <option>Completados</option>
@@ -103,7 +103,7 @@ export default function MisCursosPage() {
             <input 
               type="text" 
               placeholder="Buscar..." 
-              className="w-full border border-gray-200 rounded py-2 pl-10 pr-4 text-sm focus:outline-none focus:border-primary-turquoise focus:ring-1 focus:ring-primary-turquoise transition-all"
+              className="w-full border border-gray-200 rounded py-2 pl-10 pr-4 text-sm focus:outline-none focus:border-luminous-orange focus:ring-1 focus:ring-luminous-orange transition-all"
             />
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
           </div>
@@ -111,7 +111,7 @@ export default function MisCursosPage() {
           {/* 3. CONTROLES DE VISTA (Orden y Grid/Lista) */}
           <div className="w-full md:w-auto flex gap-3">
              <div className="relative flex-col grow md:flex-grow-0">
-                <select className="w-full appearance-none bg-white border border-gray-200 text-gray-700 py-2 px-4 pr-8 rounded focus:outline-none focus:border-primary-turquoise cursor-pointer text-sm">
+                <select className="w-full appearance-none bg-white border border-gray-200 text-gray-700 py-2 px-4 pr-8 rounded focus:outline-none focus:border-luminous-orange cursor-pointer text-sm">
                     <option>Ordenar por nombre</option>
                     <option>Último acceso</option>
                 </select>
@@ -119,8 +119,8 @@ export default function MisCursosPage() {
             </div>
 
             {/* Toggle Grid/Lista (Actualmente visual, requiere lógica de estado) */}
-            <div className="flex border border-gray-200 rounded overflow-hidden flex-shrink-0">
-                <button className="p-2 bg-primary-turquoise text-white shadow-inner">
+            <div className="flex border border-gray-200 rounded md:rounded-md overflow-hidden flex-shrink-0">
+                <button className="p-2 bg-luminous-orange text-white shadow-inner">
                     <LayoutGrid size={18}/>
                 </button>
                 <button className="p-2 bg-white text-gray-400 hover:bg-gray-50 hover:text-gray-600 transition-colors">
@@ -144,16 +144,16 @@ export default function MisCursosPage() {
 
       {/* --- FOOTER INFORMATIVO (Específico de esta página) --- */}
       {/* Muestra enlaces a plataformas antiguas si el estudiante viene de otro periodo */}
-      <section className="bg-[#0a2342] py-8 text-center border-t border-white/10 mt-auto">
+      <section className="bg-ultramarine-blue py-8 text-center border-t border-white/10 mt-auto">
           <div className="max-w-3xl mx-auto px-4 space-y-2">
             <p className="text-gray-400 text-xs font-bold uppercase tracking-wider">Elearning anterior</p>
             <p className="text-gray-300 text-sm">
                 Aulas virtuales de periodos académicos anteriores:{" "}
-                <a href="#" className="text-luxury-gold hover:text-white underline transition-colors">
+                <a href="#" className="text-luminous-orange hover:text-white underline transition-colors">
                     marzo 2025 - julio 2025
                 </a>
             </p>
-            <p className="text-gray-500 text-[10px] pt-4">Montserrat Regular</p>
+            <p className="text-gray-500 text-[10px] pt-4">Syne Regular</p>
           </div>
       </section>
 

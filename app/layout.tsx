@@ -1,21 +1,21 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Montserrat } from "next/font/google";
+import { Space_Grotesk, Syne } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
 });
 
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
+const syne = Syne({
+  variable: "--font-syne",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Mare Vitae International",
-  description: "Plataforma de eLearning",
+  title: "Logicube | Desarrollo y Asesoría TI",
+  description: "Plataforma de Desarrollo",
 };
 
 export default function RootLayout({
@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`${playfair.variable} ${montserrat.variable} antialiased bg-bg-mist`}>
+      <body className={`${spaceGrotesk.variable} ${syne.variable} antialiased bg-signal-white`}>
         
         
 

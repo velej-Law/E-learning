@@ -79,12 +79,12 @@ export default function CourseSidebar({ activeLessonId, onSelectLesson }: { acti
       
       {/* --- ZONA SUPERIOR: RESUMEN DE PROGRESO --- */}
       <div className="p-4 border-b border-gray-100">
-        <h2 className="font-playfair font-bold text-text-darkBlue text-lg">Contenido del Curso</h2>
+        <h2 className="font-space-grotesk font-bold text-dark-blue text-lg">Contenido del Curso</h2>
         
         {/* Barra de progreso visual */}
         <div className="mt-2 w-full bg-gray-100 h-1.5 rounded-full overflow-hidden">
              {/* El ancho (width) debe ser dinámico basado en: (lecciones_completadas / total) * 100 */}
-             <div className="bg-luxury-gold w-[35%] h-full rounded-full"></div>
+             <div className="bg-luminous-orange w-[35%] h-full rounded-full"></div>
         </div>
         <p className="text-xs text-gray-400 mt-1">35% Completado</p>
       </div>
@@ -99,7 +99,7 @@ export default function CourseSidebar({ activeLessonId, onSelectLesson }: { acti
                 onClick={() => toggleModule(module.id)}
                 className="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors text-left"
             >
-                <span className="font-bold text-sm text-text-darkBlue">{module.title}</span>
+                <span className="font-bold text-sm text-dark-blue">{module.title}</span>
                 {/* Icono Chevron que rota 180 grados si está abierto */}
                 <ChevronDown size={16} className={`text-gray-400 transition-transform ${openModules.includes(module.id) ? 'rotate-180' : ''}`}/>
             </button>
@@ -120,14 +120,14 @@ export default function CourseSidebar({ activeLessonId, onSelectLesson }: { acti
                                 className={clsx(
                                     "w-full flex items-start gap-3 p-3 pl-6 border-l-4 transition-all text-left group",
                                     // Estilos condicionales: Activo vs Inactivo vs Bloqueado
-                                    isActive ? "border-primary-turquoise bg-primary-turquoise/5" : "border-transparent hover:bg-gray-50",
+                                    isActive ? "border-luminous-orange bg-luminous-orange/5" : "border-transparent hover:bg-gray-50",
                                     lesson.status === 'locked' && "opacity-50 cursor-not-allowed"
                                 )}
                             >
                                 {/* --- ICONOGRAFÍA DE ESTADO --- */}
                                 <div className="mt-0.5">
-                                    {/* Caso 1: Completado (Check Verde) */}
-                                    {lesson.status === 'completed' && <CheckCircle size={16} className="text-primary-turquoise" />}
+                                    {/* Caso 1: Completado (Check Verde -> Naranja en Logicube) */}
+                                    {lesson.status === 'completed' && <CheckCircle size={16} className="text-luminous-orange" />}
                                     
                                     {/* Caso 2: Bloqueado (Candado Gris) */}
                                     {lesson.status === 'locked' && <Lock size={16} className="text-gray-300" />}
@@ -135,14 +135,14 @@ export default function CourseSidebar({ activeLessonId, onSelectLesson }: { acti
                                     {/* Caso 3: Pendiente o Actual (Icono según tipo de contenido) */}
                                     {(lesson.status === 'pending' || lesson.status === 'current') && (
                                         lesson.type === 'assignment' 
-                                            ? <FileCheck size={16} className={isActive ? "text-primary-turquoise" : "text-gray-400"} /> // Icono Tarea
-                                            : <PlayCircle size={16} className={isActive ? "text-primary-turquoise" : "text-gray-400"} /> // Icono Video
+                                            ? <FileCheck size={16} className={isActive ? "text-luminous-orange" : "text-gray-400"} /> // Icono Tarea
+                                            : <PlayCircle size={16} className={isActive ? "text-luminous-orange" : "text-gray-400"} /> // Icono Video
                                     )}
                                 </div>
                                 
                                 {/* --- TEXTOS --- */}
                                 <div className="grow">
-                                    <p className={clsx("text-sm font-medium leading-tight", isActive ? "text-primary-turquoise" : "text-gray-600")}>
+                                    <p className={clsx("text-sm font-medium leading-tight", isActive ? "text-luminous-orange" : "text-gray-600")}>
                                         {lesson.title}
                                     </p>
                                     <span className="text-[10px] text-gray-400 flex items-center gap-1 mt-1">

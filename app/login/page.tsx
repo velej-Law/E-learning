@@ -32,29 +32,22 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen w-full flex bg-white relative z-10">
+    <div className="min-h-screen w-full flex bg-signal-white relative z-10">
       
       {/* --- SECCIÓN IZQUIERDA: VISUAL --- */}
       <div className="hidden lg:flex lg:w-1/2 relative bg-hero-gradient items-center justify-center overflow-hidden">
         {/* Patrón de fondo opcional */}
-        <div className="absolute inset-0 opacity-10 bg-[url('/pattern.png')] bg-repeat"></div>
+        <div className="absolute inset-0 opacity-15 bg-[url('/Textura.png')] bg-cover bg-center"></div>
         
-        {/* Círculos decorativos (Efecto Glassmorphism) */}
-        <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-primary-turquoise rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-luxury-gold rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-
         <div className="relative z-10 text-center px-12 text-white max-w-lg">
           <div className="mb-8 flex justify-center">
-             {/* Logo Versión Blanca Grande */}
-             <div className="w-20 h-20 rounded-full border-2 border-luxury-gold flex items-center justify-center bg-white/10 backdrop-blur-md shadow-2xl">
-                 <span className="font-playfair text-3xl font-bold">MV</span>
-             </div>
+             <img src="/Isotipo.png" alt="Logicube" className="h-24 w-auto drop-shadow-2xl" />
           </div>
-          <h2 className="font-playfair text-4xl font-bold mb-6 leading-tight">
-            Descubre el poder del mar <br/> <span className="text-luxury-gold italic">en tu formación</span>
+          <h2 className="font-space-grotesk text-4xl font-bold mb-6 leading-tight">
+             <span className="text-pure-white font-black drop-shadow-lg">Logicube</span>
           </h2>
-          <p className="font-montserrat text-gray-200 text-sm leading-relaxed tracking-wide">
-            Accede a tu espacio personal y continúa tu viaje en la Talasoterapia profesional con Mare Vitae International.
+          <p className="font-syne text-gray-300 text-sm leading-relaxed tracking-wide">
+            Desarrollo y Asesoría TI. Accede a tu espacio personal.
           </p>
         </div>
       </div>
@@ -64,7 +57,7 @@ export default function LoginPage() {
         
         {/* Botón "Volver" flotante móvil */}
         <div className="absolute top-6 right-6">
-            <Link href="/" className="text-sm text-gray-400 hover:text-primary-turquoise font-bold flex items-center gap-2 transition-colors">
+            <Link href="/" className="text-sm text-gray-400 hover:text-luminous-orange font-bold flex items-center gap-2 transition-colors">
                 Volver al inicio <ArrowRight size={16}/>
             </Link>
         </div>
@@ -72,7 +65,7 @@ export default function LoginPage() {
         <div className="w-full max-w-md space-y-8">
           {/* Header del Formulario */}
           <div className="text-center lg:text-left">
-            <h1 className="font-playfair text-3xl font-bold text-text-darkBlue mb-2">Bienvenido de nuevo</h1>
+            <h1 className="font-space-grotesk text-3xl font-bold text-dark-blue mb-2">Bienvenido de nuevo</h1>
             <p className="text-gray-500 text-sm">Ingresa tus credenciales para acceder al aula.</p>
           </div>
 
@@ -80,16 +73,16 @@ export default function LoginPage() {
             
             {/* Input Email */}
             <div className="space-y-2">
-                <label className="text-xs font-bold text-text-darkBlue uppercase tracking-wider ml-1">Correo Electrónico</label>
+                <label className="text-xs font-bold text-ultramarine-blue uppercase tracking-wider ml-1">Correo Electrónico</label>
                 <div className="relative group">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <Mail className="h-5 w-5 text-gray-400 group-focus-within:text-primary-turquoise transition-colors" />
+                        <Mail className="h-5 w-5 text-gray-400 group-focus-within:text-luminous-orange transition-colors" />
                     </div>
                     <input 
                         type="email" 
                         required
-                        className="block w-full pl-10 pr-3 py-3 border border-gray-200 rounded-lg text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-turquoise/20 focus:border-primary-turquoise transition-all bg-bg-mist/30"
-                        placeholder="ejemplo@marevitae.com"
+                        className="block w-full pl-10 pr-3 py-3 border border-gray-200 rounded-md text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-luminous-orange/20 focus:border-luminous-orange transition-all bg-signal-white"
+                        placeholder="ejemplo@logicube.com"
                         value={formData.email}
                         onChange={(e) => setFormData({...formData, email: e.target.value})}
                     />
@@ -99,19 +92,19 @@ export default function LoginPage() {
             {/* Input Password */}
             <div className="space-y-2">
                  <div className="flex justify-between items-center ml-1">
-                    <label className="text-xs font-bold text-text-darkBlue uppercase tracking-wider">Contraseña</label>
-                    <a href="#" className="text-xs text-primary-turquoise hover:text-primary-dark font-medium transition-colors">
+                    <label className="text-xs font-bold text-ultramarine-blue uppercase tracking-wider">Contraseña</label>
+                    <a href="#" className="text-xs text-luminous-orange hover:text-dark-blue font-medium transition-colors">
                         ¿Olvidaste tu contraseña?
                     </a>
                 </div>
                 <div className="relative group">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <Lock className="h-5 w-5 text-gray-400 group-focus-within:text-luxury-gold transition-colors" />
+                        <Lock className="h-5 w-5 text-gray-400 group-focus-within:text-luminous-orange transition-colors" />
                     </div>
                     <input 
                         type={showPassword ? "text" : "password"}
                         required
-                        className="block w-full pl-10 pr-10 py-3 border border-gray-200 rounded-lg text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-luxury-gold/20 focus:border-luxury-gold transition-all bg-bg-mist/30"
+                        className="block w-full pl-10 pr-10 py-3 border border-gray-200 rounded-md text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-luminous-orange/20 focus:border-luminous-orange transition-all bg-signal-white"
                         placeholder="••••••••"
                         value={formData.password}
                         onChange={(e) => setFormData({...formData, password: e.target.value})}
@@ -130,7 +123,7 @@ export default function LoginPage() {
             <button 
                 type="submit" 
                 disabled={isLoading}
-                className="w-full py-3.5 rounded-lg bg-coral-gradient text-white font-bold shadow-lg shadow-action-coral/30 hover:shadow-xl hover:opacity-95 transform hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2 uppercase tracking-widest text-sm"
+                className="w-full py-3.5 rounded-md bg-orange-gradient text-white font-bold shadow-lg shadow-luminous-orange/30 hover:shadow-xl hover:opacity-95 transform hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2 uppercase tracking-widest text-sm"
             >
                 {isLoading ? (
                     <>
@@ -147,7 +140,7 @@ export default function LoginPage() {
           <div className="mt-6 text-center">
              <p className="text-sm text-gray-500">
                 ¿No tienes una cuenta?{' '}
-                <a href="#" className="font-bold text-text-darkBlue hover:text-luxury-gold transition-colors">
+                <a href="#" className="font-bold text-dark-blue hover:text-luminous-orange transition-colors">
                     Contactar soporte
                 </a>
              </p>

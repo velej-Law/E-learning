@@ -3,7 +3,7 @@
 import { useState, useRef  } from "react";
 import { User, Mail, Phone, MapPin, Lock, Camera, Save, Loader2, ShieldCheck, Upload } from "lucide-react";
 import Image from "next/image"; // Importamos el componente optimizado de Next.js
-import { clsx } from "clsx";
+
 
 export default function ProfilePage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -67,13 +67,13 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="min-h-screen bg-bg-mist pb-20">
+    <div className="min-h-screen bg-signal-white pb-20">
       
       {/* --- CABECERA DECORATIVA --- */}
       <div className="h-48 bg-hero-gradient relative overflow-hidden">
         {/* Patrón de fondo sutil */}
         <div className="absolute inset-0 opacity-10 bg-[url('/pattern.png')]"></div>
-        <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-luxury-gold rounded-full mix-blend-overlay filter blur-3xl opacity-30"></div>
+        <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-luminous-orange rounded-full mix-blend-overlay filter blur-3xl opacity-30"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20 relative z-10">
@@ -121,7 +121,7 @@ export default function ProfilePage() {
                             />
                         ) : (
                             // Placeholder si no hay imagen
-                            <div className="w-full h-full bg-slate-800 flex items-center justify-center text-white text-3xl font-playfair font-bold">
+                            <div className="w-full h-full bg-slate-800 flex items-center justify-center text-white text-3xl font-space-grotesk font-bold">
                                 {formData.firstName.charAt(0)}{formData.lastName.charAt(0)}
                             </div>
                         )}
@@ -139,16 +139,16 @@ export default function ProfilePage() {
                     )}
                     
                     {/* Icono pequeño de cámara fijo */}
-                    <div className="absolute bottom-1 right-1 bg-luxury-gold p-2 rounded-full border-2 border-white shadow-sm z-20 pointer-events-none">
+                    <div className="absolute bottom-1 right-1 bg-luminous-orange p-2 rounded-full border-2 border-white shadow-sm z-20 pointer-events-none">
                         <Camera size={14} className="text-white" />
                     </div>
                 </div>
                 {/* --- FIN SECCIÓN AVATAR --- */}
 
-                <h2 className="font-playfair font-bold text-2xl text-text-darkBlue mb-1">
+                <h2 className="font-space-grotesk font-bold text-2xl text-dark-blue mb-1">
                     {formData.firstName} {formData.lastName}
                 </h2>
-                <p className="text-primary-turquoise font-medium text-sm uppercase tracking-wider mb-4">
+                <p className="text-luminous-orange font-medium text-sm uppercase tracking-wider mb-4">
                     Estudiante Premium
                 </p>
 
@@ -166,19 +166,19 @@ export default function ProfilePage() {
               {/* Estadísticas Rápidas */}
               <div className="grid grid-cols-2 divide-x divide-gray-100 bg-gray-50/50">
                   <div className="p-4 text-center hover:bg-gray-50 transition-colors">
-                      <span className="block font-playfair text-xl font-bold text-text-darkBlue">12</span>
+                      <span className="block font-space-grotesk text-xl font-bold text-dark-blue">12</span>
                       <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Cursos Completados</span>
                   </div>
                   <div className="p-4 text-center hover:bg-gray-50 transition-colors">
-                      <span className="block font-playfair text-xl font-bold text-text-darkBlue">85%</span>
+                      <span className="block font-space-grotesk text-xl font-bold text-dark-blue">85%</span>
                       <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Promedio Global</span>
                   </div>
               </div>
 
               <div className="p-6">
-                <h3 className="font-bold text-text-darkBlue text-sm mb-3">Tu Biografía</h3>
+                <h3 className="font-bold text-dark-blue text-sm mb-3">Tu Biografía</h3>
                 <p className="text-sm text-gray-500 leading-relaxed italic">
-                    "{formData.bio}"
+                    &quot;{formData.bio}&quot;
                 </p>
               </div>
 
@@ -191,8 +191,8 @@ export default function ProfilePage() {
             {/* 1. SECCIÓN: INFORMACIÓN PERSONAL */}
             <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
                 <div className="px-6 py-4 border-b border-gray-100 flex justify-between items-center bg-gray-50/30">
-                    <h3 className="font-playfair font-bold text-lg text-text-darkBlue flex items-center gap-2">
-                        <User size={18} className="text-luxury-gold" /> Información Personal
+                    <h3 className="font-space-grotesk font-bold text-lg text-dark-blue flex items-center gap-2">
+                        <User size={18} className="text-luminous-orange" /> Información Personal
                     </h3>
                 </div>
                 
@@ -204,7 +204,7 @@ export default function ProfilePage() {
                             type="text" 
                             value={formData.firstName}
                             onChange={(e) => setFormData({...formData, firstName: e.target.value})}
-                            className="w-full p-3 bg-bg-mist/30 border border-gray-200 rounded-lg focus:outline-none focus:border-primary-turquoise focus:ring-1 focus:ring-primary-turquoise transition-all text-sm font-medium"
+                            className="w-full p-3 bg-signal-white/30 border border-gray-200 rounded-lg focus:outline-none focus:border-luminous-orange focus:ring-1 focus:ring-luminous-orange transition-all text-sm font-medium"
                         />
                     </div>
                     {/* Apellido */}
@@ -214,7 +214,7 @@ export default function ProfilePage() {
                             type="text" 
                             value={formData.lastName}
                             onChange={(e) => setFormData({...formData, lastName: e.target.value})}
-                            className="w-full p-3 bg-bg-mist/30 border border-gray-200 rounded-lg focus:outline-none focus:border-primary-turquoise focus:ring-1 focus:ring-primary-turquoise transition-all text-sm font-medium"
+                            className="w-full p-3 bg-signal-white/30 border border-gray-200 rounded-lg focus:outline-none focus:border-luminous-orange focus:ring-1 focus:ring-luminous-orange transition-all text-sm font-medium"
                         />
                     </div>
                     {/* Email */}
@@ -239,7 +239,7 @@ export default function ProfilePage() {
                                 type="text" 
                                 value={formData.phone}
                                 onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                                className="w-full pl-10 p-3 bg-bg-mist/30 border border-gray-200 rounded-lg focus:outline-none focus:border-primary-turquoise focus:ring-1 focus:ring-primary-turquoise transition-all text-sm font-medium"
+                                className="w-full pl-10 p-3 bg-signal-white/30 border border-gray-200 rounded-lg focus:outline-none focus:border-luminous-orange focus:ring-1 focus:ring-luminous-orange transition-all text-sm font-medium"
                             />
                         </div>
                     </div>
@@ -252,7 +252,7 @@ export default function ProfilePage() {
                                 type="text" 
                                 value={formData.location}
                                 onChange={(e) => setFormData({...formData, location: e.target.value})}
-                                className="w-full pl-10 p-3 bg-bg-mist/30 border border-gray-200 rounded-lg focus:outline-none focus:border-primary-turquoise focus:ring-1 focus:ring-primary-turquoise transition-all text-sm font-medium"
+                                className="w-full pl-10 p-3 bg-signal-white/30 border border-gray-200 rounded-lg focus:outline-none focus:border-luminous-orange focus:ring-1 focus:ring-luminous-orange transition-all text-sm font-medium"
                             />
                         </div>
                     </div>
@@ -264,7 +264,7 @@ export default function ProfilePage() {
                             rows={3}
                             value={formData.bio}
                             onChange={(e) => setFormData({...formData, bio: e.target.value})}
-                            className="w-full p-3 bg-bg-mist/30 border border-gray-200 rounded-lg focus:outline-none focus:border-primary-turquoise focus:ring-1 focus:ring-primary-turquoise transition-all text-sm font-medium resize-none"
+                            className="w-full p-3 bg-signal-white/30 border border-gray-200 rounded-lg focus:outline-none focus:border-luminous-orange focus:ring-1 focus:ring-luminous-orange transition-all text-sm font-medium resize-none"
                         />
                     </div>
                 </div>
@@ -273,7 +273,7 @@ export default function ProfilePage() {
                     <button 
                         onClick={handleSave}
                         disabled={isLoading}
-                        className="flex items-center gap-2 bg-primary-turquoise text-white px-6 py-2 rounded-md font-bold text-sm shadow hover:bg-primary-dark transition-all"
+                        className="flex items-center gap-2 bg-luminous-orange text-white px-6 py-2 rounded-md font-bold text-sm shadow hover:bg-primary-dark transition-all"
                     >
                         {isLoading ? <Loader2 className="animate-spin" size={16} /> : <Save size={16} />}
                         Guardar Cambios
@@ -284,24 +284,24 @@ export default function ProfilePage() {
             {/* 2. SECCIÓN: SEGURIDAD */}
             <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
                 <div className="px-6 py-4 border-b border-gray-100 flex justify-between items-center bg-gray-50/30">
-                    <h3 className="font-playfair font-bold text-lg text-text-darkBlue flex items-center gap-2">
-                        <Lock size={18} className="text-luxury-gold" /> Seguridad
+                    <h3 className="font-space-grotesk font-bold text-lg text-dark-blue flex items-center gap-2">
+                        <Lock size={18} className="text-luminous-orange" /> Seguridad
                     </h3>
                 </div>
                 
                 <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                         <label className="text-xs font-bold text-gray-500 uppercase">Nueva Contraseña</label>
-                        <input type="password" placeholder="••••••••" className="w-full p-3 bg-bg-mist/30 border border-gray-200 rounded-lg focus:outline-none focus:border-primary-turquoise transition-all text-sm"/>
+                        <input type="password" placeholder="••••••••" className="w-full p-3 bg-signal-white/30 border border-gray-200 rounded-lg focus:outline-none focus:border-luminous-orange transition-all text-sm"/>
                     </div>
                     <div className="space-y-2">
                         <label className="text-xs font-bold text-gray-500 uppercase">Confirmar Contraseña</label>
-                        <input type="password" placeholder="••••••••" className="w-full p-3 bg-bg-mist/30 border border-gray-200 rounded-lg focus:outline-none focus:border-primary-turquoise transition-all text-sm"/>
+                        <input type="password" placeholder="••••••••" className="w-full p-3 bg-signal-white/30 border border-gray-200 rounded-lg focus:outline-none focus:border-luminous-orange transition-all text-sm"/>
                     </div>
                 </div>
                  <div className="px-6 py-4 bg-gray-50 border-t border-gray-100 flex justify-end">
-                    <button className="text-gray-500 hover:text-text-darkBlue font-bold text-sm underline px-4">Cancelar</button>
-                    <button className="bg-white border border-gray-300 text-text-darkBlue px-4 py-2 rounded-md font-bold text-sm shadow-sm hover:bg-gray-50 transition-all ml-2">
+                    <button className="text-gray-500 hover:text-dark-blue font-bold text-sm underline px-4">Cancelar</button>
+                    <button className="bg-white border border-gray-300 text-dark-blue px-4 py-2 rounded-md font-bold text-sm shadow-sm hover:bg-gray-50 transition-all ml-2">
                         Actualizar Contraseña
                     </button>
                 </div>

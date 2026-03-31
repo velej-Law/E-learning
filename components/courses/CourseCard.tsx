@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 import Link from "next/link";
 import { clsx } from "clsx";
 
@@ -38,7 +38,7 @@ export default function CourseCard({ course }: { course: CourseProps }) {
   const isStarted = course.progress > 0;
 
   return (
-    <div className="group bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full transform hover:-translate-y-1">
+    <div className="group bg-white rounded-md shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full transform hover:-translate-y-1">
       
       {/* --- ZONA 1: IMAGEN DE PORTADA Y PROGRESO --- */}
       <div className="relative h-48 w-full bg-gray-200">
@@ -46,7 +46,7 @@ export default function CourseCard({ course }: { course: CourseProps }) {
         {/* Placeholder / Imagen */}
         {/* NOTA DE DISEÑO: Usamos un div gris con texto por defecto. 
             Para producción, descomentar <Image /> de Next.js. */}
-        <div className="absolute inset-0 bg-primary-dark/20 flex items-center justify-center text-gray-500">
+        <div className="absolute inset-0 bg-ultramarine-blue/20 flex items-center justify-center text-gray-500">
              {/* Aquí iría <Image src={course.imageSrc} ... /> real */}
              <span className="text-xs font-bold text-white/50 uppercase">Imagen del curso</span>
         </div>
@@ -58,9 +58,9 @@ export default function CourseCard({ course }: { course: CourseProps }) {
         <div className="absolute bottom-0 left-0 w-full h-8 bg-black/60 backdrop-blur-sm flex items-center px-3 gap-3">
            {/* Contenedor de la barra (Gris oscuro) */}
            <div className="flex-grow bg-gray-600/50 rounded-full h-1.5 overflow-hidden">
-              {/* Relleno de la barra (Dorado Corporativo) */}
+              {/* Relleno de la barra (Naranja Corporativo) */}
               <div 
-                className="bg-luxury-gold h-full rounded-full shadow-[0_0_10px_#D4AF37] relative" 
+                className="bg-luminous-orange h-full rounded-full shadow-[0_0_10px_#EC672A] relative" 
                 style={{ width: `${course.progress}%` }}
               >
                 {/* Efecto de brillo/resplandor al final de la barra */}
@@ -78,7 +78,7 @@ export default function CourseCard({ course }: { course: CourseProps }) {
       <div className="p-5 flex flex-col flex-grow">
         <div className="flex-grow">
           {/* Título truncado a 2 líneas para mantener uniformidad en el grid */}
-          <h3 className="font-playfair font-bold text-lg leading-tight text-text-darkBlue uppercase mb-2 line-clamp-2 min-h-[3rem]">
+          <h3 className="font-space-grotesk font-bold text-lg leading-tight text-dark-blue uppercase mb-2 line-clamp-2 min-h-[3rem]">
             {course.title}
           </h3>
           <p className="text-sm text-gray-500 font-medium mb-1">{course.instructor}</p>
@@ -98,8 +98,8 @@ export default function CourseCard({ course }: { course: CourseProps }) {
                 "w-full py-2.5 px-4 rounded-md font-bold text-xs shadow-md transition-all uppercase tracking-wider",
                 // Cambio de estilo condicional según estado
                 isStarted 
-                    ? "bg-coral-gradient text-white hover:opacity-90 hover:shadow-lg" // Curso iniciado
-                    : "bg-primary-turquoise text-white hover:bg-primary-dark"         // Curso nuevo
+                    ? "bg-orange-gradient text-white hover:opacity-90 hover:shadow-lg" // Curso iniciado
+                    : "bg-dark-blue text-white hover:bg-ultramarine-blue"         // Curso nuevo
             )}>
               {isStarted ? "Continuar Curso" : "Ver Detalles"}
             </button>

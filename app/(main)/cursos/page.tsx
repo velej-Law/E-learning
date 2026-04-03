@@ -13,48 +13,48 @@ import CourseCard from "@/components/courses/CourseCard";
 const courses = [
   {
     id: "1",
-    title: "Fundamentos de Talasoterapia",
+    title: "Fundamentos de Intercomunicaciones",
     instructor: "Logicube Instructor",
     parallel: "Paralelo 1",
     imageSrc: "/course1.jpg",
     progress: 38,
-    slug: "fundamentos-talasoterapia"
+    slug: "fundamentos-intercomunicaciones"
   },
   {
     id: "2",
-    title: "Hidroterapia Marina Avanzada",
+    title: "Fundamentos de desarrollo Modular",
     instructor: "Logicube Instructor",
     parallel: "Paralelo 1",
     imageSrc: "/course2.jpg",
     progress: 8,
-    slug: "hidroterapia-avanzada"
+    slug: "fundamentos-desarrollo-modular"
   },
   {
     id: "3",
-    title: "Aplicaciones de Algas y Fangos",
+    title: "Aplicaciones y Parametros de IA",
     instructor: "Logicube Instructor",
     parallel: "Paralelo 1",
     imageSrc: "/course3.jpg",
     progress: 25,
-    slug: "aplicaciones-algas"
+    slug: "aplicaciones-ia"
   },
   {
     id: "4",
-    title: "Gestión de Centros de Bienestar Marino",
+    title: "Gestión de Recursos",
     instructor: "Logicube Instructor",
     parallel: "Paralelo 1",
     imageSrc: "/course4.jpg",
     progress: 0, // No iniciado
-    slug: "gestion-centros"
+    slug: "gestion-recursos"
   },
    {
     id: "5",
-    title: "Climatoterapia Marina",
+    title: "Redacción y Optimizacion de Prompts",
     instructor: "Logicube Instructor",
     parallel: "Paralelo 1",
     imageSrc: "/course5.jpg",
     progress: 100,
-    slug: "climatoterapia"
+    slug: "redaccion-prompts"
   }
 ];
 

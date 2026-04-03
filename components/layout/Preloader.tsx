@@ -48,6 +48,7 @@ export default function Preloader() {
                 fill
                 className="object-contain drop-shadow-lg"
                 priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </motion.div>
 
@@ -64,10 +65,10 @@ export default function Preloader() {
 
             {/* 3. Imagotipo en "Grande" debajo de la barra */}
             <motion.div
-               initial={{ opacity: 0, scale: 0.95 }}
+               initial={{ opacity: 0, scale: 1 }}
                animate={{ opacity: 1, scale: 1 }}
                transition={{ duration: 1, delay: 0.2 }}
-               className="relative w-64 h-20 sm:w-72 sm:h-24 mt-4"
+               className="relative w-300 h-90 sm:w-300 sm:h-90 mt-4"
             >
               <Image 
                 src="/Imagotipo.png" 
@@ -75,6 +76,7 @@ export default function Preloader() {
                 fill
                 className="object-contain"
                 priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </motion.div>
 

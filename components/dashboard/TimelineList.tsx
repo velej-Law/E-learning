@@ -35,17 +35,17 @@ const mockTasks: Task[] = [
     id: "1",
     dateLabel: "Lun. 30 de Mayo del 2025",
     time: "09:00",
-    title: "Práctica de talasoterapia",
+    title: "Práctica de desarrollo Modular",
     type: "assignment",
-    courseName: "Fundamentos"
+    courseName: "Fundamentos de desarrollo Modular"
   },
   {
     id: "2",
     dateLabel: "Mié. 1 de Junio del 2025",
     time: "22:00",
-    title: "Investigación de propiedades del lodo",
+    title: "Investigación de elementos de un propmt",
     type: "assignment",
-    courseName: "Aplicaciones de Algas"
+    courseName: "Redacción y Optimizacion de Prompts"
   }
 ];
 
